@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --tw-fig-700: 1 31 75;
+    --tw-fig-600: 0 91 150;
+    --tw-fig-300: 126 130 153;
+
+    --tw-wg-400: 27 197 189;
+  }
+
+  html {
+    font-family: "Roboto", sans-serif;
+  }
+  html,
+  body,
+  #app {
+    @apply min-h-screen;
+  }
+
+  #app {
+    @apply flex;
+  }
+}
+
+aside {
+  width: 96px;
+  @apply hidden md:flex flex-col items-center justify-start transition;
+}
+
+aside.opened {
+  @apply !flex !w-full fixed z-[9999] h-full;
+}
+
+aside.wide,
+aside.opened {
+  width: 288px;
+  @apply items-start bg-gray-50;
+}
+
+aside.wide #logo,
+aside.opened #logo {
+  @apply !justify-start pl-6;
+}
+
+aside.wide #logo > span.hidden,
+aside.opened #logo > span.hidden {
+  @apply !block px-4;
+}
+
+aside.wide nav,
+aside.opened nav {
+  @apply px-6;
+}
+
+aside.wide nav span.hidden,
+aside.opened nav span.hidden {
+  @apply !block pl-4 font-medium text-fig-300;
+}
+
+#logo {
+  height: 80px;
+}
+
+#content {
+  @apply grow flex flex-col w-full;
+}
+
+header {
+  height: 80px;
+  @apply border-b-2 border-[#F3F6F9] flex items-center justify-between;
+}
+
+/* nav menu */
+nav .nav-item {
+  @apply flex items-center;
+}
+
+nav .nav-item > div {
+  @apply p-3 rounded-lg transition hover:bg-gray-50 cursor-pointer;
+}
+
+nav .nav-item.active > div {
+  @apply bg-gray-100;
+}
+
+nav .nav-item.active span.hidden {
+  @apply text-fig-700;
+}
+
+/* gravatar */
+img.gravatar {
+  border-radius: 5px;
+  width: 43px;
+  height: 43px;
+}
+
+/* card */
+.card {
+  background-color: rgb(241, 250, 254);
+  border-radius: 10px;
+  @apply p-4;
+}
+
+/* table */
+table {
+  border-collapse: separate;
+  border-spacing: 0 4px;
+  @apply w-full;
+}
+
+table > thead th {
+  @apply sticky top-0 z-0 bg-white !text-left px-2 py-1.5 !font-normal;
+}
+
+table tbody tr td {
+  @apply py-1.5 px-2;
+}
+
+table tbody tr:nth-child(even) {
+  @apply bg-white;
+}
+
+table tbody tr:nth-child(odd) {
+  @apply !py-4;
+}
+
+/* rows */
+.row-info {
+  @apply font-bold text-fig-700 card !bg-white flex justify-between items-center cursor-pointer;
+}
+
+/* report */
+.no-reports-text {
+  line-height: 19px;
+  width: 470px;
+  @apply text-fig-300 font-bold mx-auto whitespace-pre-line;
+}
+
+.report-footer-total {
+  @apply mt-auto card font-bold text-fig-700;
+}
+
+.report-header-filter {
+  @apply text-fig-700 font-bold pl-2;
+}
